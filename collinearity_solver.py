@@ -219,7 +219,12 @@ def main():
     
     # process each point pair
     for _, point_pair in points_df.iterrows():
-        xyz = stereo_solver.compute_3D(point_pair[1], point_pair[2], point_pair[3], point_pair[4])
+        xyz = stereo_solver.compute_3D(
+            point_pair["425_x"],
+            point_pair["425_y"],
+            point_pair["426_x"],
+            point_pair["426_y"],
+        )
         print(xyz)
         results.append(xyz)
     
@@ -229,4 +234,4 @@ def main():
     print("3d coordinates have been saved to '3d_coords.csv'")
 
 if __name__ == "__main__":
-    main() 
+    main()
